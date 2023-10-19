@@ -161,7 +161,7 @@ export const config = {
         tags: [],
         // <number> timeout for step definitions
         //timeout: 60000,
-        timeout: 1200000,
+        timeout: 60000,
     },
 
     //
