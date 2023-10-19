@@ -24,7 +24,7 @@
     "serenity:update": "serenity-bdd update",
     "serenity:clean": "rimraf target",
     "wdio": "wdio run ./wdio.conf.js",
-    "wdiotag": "npx wdio --cucumberOpts.tagExpression=@'pila' --spec features/ebay/search_articles.feature",
+    "wdiotag": "wdio run ./wdio.conf.js --cucumberOpts.tags='@bote'",
 
     "serenity:report": "serenity-bdd run"
   }
