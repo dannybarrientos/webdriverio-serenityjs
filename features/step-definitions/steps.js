@@ -9,7 +9,7 @@ Given('{actor} opens the eBay {string}', async (actor, urlstring) => {
     )
 })
 
-When('{actor} searches for{string}', async (actor, wordString) => {
+When('{actor} searches for {string}', async (actor, wordString) => {
     await actor.attemptsTo(
         SearchArticle.IntoSearchWord(wordString),
     )
@@ -19,4 +19,7 @@ Then('{actor} prints the number of items found', async (actor) => {
     await actor.attemptsTo(
         SearchArticle.resultNumbersWord(),
     )
+    const result = SearchArticle.getResultsNumber();
+    console.log(`Resultado de la búsqueda: ${result}`)
+
 })

@@ -88,7 +88,7 @@ export const config = {
     baseUrl: 'http://localhost',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 70000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
@@ -160,7 +160,6 @@ export const config = {
         // <string[] | string> (expression) only execute the features or scenarios with tags matching the expression
         tags: [],
         // <number> timeout for step definitions
-        //timeout: 60000,
         timeout: 60000,
     },
 
