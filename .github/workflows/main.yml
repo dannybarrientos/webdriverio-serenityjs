@@ -10,24 +10,24 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+    strategy:
+      matrix:
+        node-version: [ 20.x ]
 
     steps:
-      - name: Install Chromium
-        run: sudo apt-get install chromium-browser
-      - uses: actions/checkout@v3
-      - name: Use Node.js
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
-      - name: Install dependencies
-        run: npm install
-      - name: Running smoke tests
-        run: npm run serenity
+          node-version: ${{ matrix.node-version }}
+      - name: Setup Node Modules
+        uses: bahmutov/npm-install@v1
+      - run: npm i -d
+      - run: npm run serenity
 
       - name: GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.3
-        if: matrix.node-version == '18.x' && github.ref == 'refs/heads/master'
+        if: matrix.node-version == '20.x' && github.ref == 'refs/heads/master'
         with:
           BRANCH: gh-pages
           FOLDER: target/site/serenity
