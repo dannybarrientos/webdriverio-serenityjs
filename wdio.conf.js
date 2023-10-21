@@ -54,12 +54,15 @@ export const config = {
         browserName: 'chrome',
         'goog:chromeOptions': {
             args: [
-                "--headless",
-                "disable-gpu",
-            "--no-sandbox",
-            "--disable-gpu",
-            "--disable-dev-shm-usage",
-            "--window-size=1920,1080", ]
+             '--disable-web-security',
+                '--allow-file-access-from-files',
+                '--allow-file-access',
+                '--disable-infobars',
+                '--ignore-certificate-errors',
+                '--headless',
+                '--disable-gpu',
+                '--window-size=1024x768', 
+            ]
         }
 
     }],
