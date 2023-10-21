@@ -22,7 +22,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Setup Node Modules
         uses: bahmutov/npm-install@v1
-      - run: npm i -d
       - run: npm run serenity
 
       - name: GitHub Pages
