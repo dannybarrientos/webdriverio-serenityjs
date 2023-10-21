@@ -2,9 +2,9 @@ name: build
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
     types: [ opened, synchronize ]
 
 jobs:
@@ -28,7 +28,7 @@ jobs:
           CI: true
       - name: GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.3
-        if: matrix.node-version == '18.x' && github.ref == 'refs/heads/main'
+        if: matrix.node-version == '18.x' && github.ref == 'refs/heads/master'
         with:
           BRANCH: gh-pages
           FOLDER: target/site/serenity
