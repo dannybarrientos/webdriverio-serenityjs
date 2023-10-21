@@ -1,4 +1,3 @@
-import 'mocha'
 import { Task, Log, actorCalled } from '@serenity-js/core';
 import { Navigate, Enter, Click, PageElement, Text, By } from '@serenity-js/web';
 
