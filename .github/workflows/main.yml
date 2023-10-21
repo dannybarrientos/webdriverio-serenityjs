@@ -24,10 +24,11 @@ jobs:
         uses: bahmutov/npm-install@v1
       - run: npm run serenity
 
-      - name: GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.4.3
-        if: matrix.node-version == '20.x' && github.ref == 'refs/heads/master'
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-github-pages@v3.1.12
         with:
-          BRANCH: gh-pages
-          FOLDER: target/site/serenity
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: target/site/serenity
           CLEAN: true
