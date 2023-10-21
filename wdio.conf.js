@@ -181,7 +181,7 @@ export const config = {
         // <number> timeout for step definitions
         timeout: 60000,
     },
- // Mocha.js configuration
+ // Mocha.js configuration De
  mochaOpts: {
     ui: 'bdd',
     timeout: 60000,
