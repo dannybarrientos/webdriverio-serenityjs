@@ -53,9 +53,15 @@ export const config = {
     capabilities: [{
         browserName: 'chrome',
         'goog:chromeOptions': {
-            args: ['headless', 'disable-gpu']
+            args: [
+                "--headless",
+                "disable-gpu",
+            "--no-sandbox",
+            "--disable-gpu",
+            "--disable-dev-shm-usage",
+            "--window-size=1920,1080", ]
         }
-        
+
     }],
 
     //
@@ -145,7 +151,16 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: [
+        'spec',
+        ['junit', {
+        outputDir: './target/site/serenity',
+        outputFileFormat: function() {
+            return `junit-report.xml`
+        }
+    }]
+
+],
 
     // Cucumber configuration, see
     //  https://serenity-js.org/api/cucumber-adapter/interface/CucumberConfig/
@@ -166,6 +181,11 @@ export const config = {
         // <number> timeout for step definitions
         timeout: 60000,
     },
+ // Mocha.js configuration
+ mochaOpts: {
+    ui: 'bdd',
+    timeout: 60000,
+},
 
     //
     // =====

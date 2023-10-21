@@ -1,5 +1,6 @@
 import { Given, When, Then } from '@cucumber/cucumber'
 //import { Ensure, equals } from '@serenity-js/assertions'
+import 'mocha'
 
 import { SearchArticle } from '../../serenity/ebay-app/SearchArticle.js'
 
@@ -17,9 +18,7 @@ When('{actor} searches for {string}', async (actor, wordString) => {
 
 Then('{actor} prints the number of items found', async (actor) => {
     await actor.attemptsTo(
-        SearchArticle.resultNumbersWord(),
+        SearchArticle.resultNumbersWord()
     )
-    const result = SearchArticle.getResultsNumber();
-    console.log(`Resultado de la búsqueda: ${result}`)
 
 })
