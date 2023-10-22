@@ -6,8 +6,8 @@ export const config = {
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     runner: 'local',
     //
-    // ==================s
-    // Specify Test Filess
+    // ==================
+    // Specify Test Files
     // ==================
     // Define which test specs should run. The pattern is relative to the directory
     // of the configuration file being run.
