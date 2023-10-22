@@ -22,7 +22,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Setup Node Modules
         uses: bahmutov/npm-install@v1
-      - run: npm run serenity
+      - run: npm run serenitytag
 
       - name: Deploy report to Github Pages
         if: always()
