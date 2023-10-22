@@ -1,6 +1,5 @@
 import { Given, When, Then } from '@cucumber/cucumber'
 //import { Ensure, equals } from '@serenity-js/assertions'
-import 'mocha'
 
 import { SearchArticle } from '../../serenity/ebay-app/SearchArticle.js'
 
