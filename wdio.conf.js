@@ -60,6 +60,8 @@ export const config = {
                 '--disable-infobars',
                 '--ignore-certificate-errors',
                 '--headless',
+                '--no-sandbox',
+                '--disable-dev-shm-usage',
                 '--disable-gpu',
                 '--window-size=1024x768', 
             ]
