@@ -7,7 +7,7 @@ export const config = {
     runner: 'local',
     //
     // ==================s
-    // Specify Test Files
+    // Specify Test Filess
     // ==================
     // Define which test specs should run. The pattern is relative to the directory
     // of the configuration file being run.
