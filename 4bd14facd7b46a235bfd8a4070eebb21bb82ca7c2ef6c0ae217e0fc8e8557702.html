@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html">
-
-
+<html>
 <head>
     <meta charset="UTF-8"/>
-    <title>Capabilities</title>
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Serenity Reports</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
@@ -107,74 +110,50 @@
 
 
 
-    <script>
+    <script class="code" type="text/javascript">$(document).ready(function () {
 
-        $(document).ready(function () {
-
-            var scenarioTable = $('.scenario-result-table').DataTable({
-
-                "order": [],
+            $('.scenario-result-table').DataTable({
+                "order": [[0, "asc",], [3, "asc",]],
+                "pageLength": 10,
                 "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                },
+                columnDefs: [
+                    {type: 'time-elapsed-dhms', targets: 4}
+                ]
+            });
+
+            // Results table
+            $('#test-results-table').DataTable({
+                "order": [[0, "asc",], [3, "asc",]],
+                "pageLength": 10,
+                "lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]]
+            });
+
+            $('#evidence-table').DataTable({
+                searching: false,
+                paging: false,
+                info: false
+            });
+
+            $(".feature-coverage-table").DataTable({
+                searching: false,
+                paging: false,
+                info: false
+            });
+
+            $(".feature-coverage-table-with-pagination").DataTable({
+                order: [[0, "asc",]],
+                pageLength: 10,
+                language: {
                     searchPlaceholder: "Filter",
                     search: ""
                 }
             });
-
-            $('.example-table table').DataTable({
-                searching: false,
-                ordering: false,
-                paging: false,
-                info: false
-            });
-
-            $('.example-table-in-scenario table').DataTable({
-                searching: false,
-                ordering: false,
-                paging: false,
-                info: false
-            });
-
-            $('#evidence-table').DataTable(
-                {
-                    searching: false,
-                    ordering: false,
-                    paging: false,
-                    info: false
-                }
-            );
-
-
-            $(".scenario-docs .card-body table").wrap("<div class='table-responsive'></div>");
-
-            $("#requirements-tabs").tabs();
-            $("#test-tabs").tabs();
-
-            var requirementsTree = [{"text":"Serenity/JS Todo List Example","type":"capability","href":"4bd14facd7b46a235bfd8a4070eebb21bb82ca7c2ef6c0ae217e0fc8e8557702.html","nodes":[{"text":"Search items in Ebay","type":"feature","href":"582ead81d4018f20202ce660485438fe2247d96f85f6bb4fd3ef0c5df5807342.html","nodes":[],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027bi bi-check-circle-fill success-icon \u0027 title\u003d\u0027SUCCESS\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e1 scenario\u003c/span\u003e"]}],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027bi bi-check-circle-fill success-icon \u0027 title\u003d\u0027SUCCESS\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e1 feature\u003c/span\u003e"]}];
-
-            $('#tree').treeview({
-                data: requirementsTree,
-                enableLinks: true,
-                levels: 10,
-                showTags: true,
-                expandIcon: "bi bi-journal-plus",
-                collapseIcon: "bi bi-journal-minus",
-                emptyIcon: "bi bi-journal"
-            });
-
-        });
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            $(".scenario-docs > div > p").html(function () {
-                var text = $(this).text().trim().split(" ");
-                var first = text.shift();
-                return (text.length > 0 ? "<strong>" + first + "</strong> " : first) + text.join(" ");
-            });
         });
     </script>
 </head>
-
 
 <body class="results-page">
 <div id="topheader">
@@ -189,164 +168,162 @@
     </div>
 </div>
 
-
 <div class="middlecontent">
+
+
     <div id="contenttop">
         <div class="middlebg">
-            <span class="breadcrumbs">
-            <a href='index.html'>Home</a> > <a href="capabilities.html">Requirements</a>
-
-
-
-                    > <span class="truncate-40">Serenity/JS Todo List Example</span>
-
+        <span class="breadcrumbs"><a href="index.html">Home</a>
+                    > Capability 
+                > <span class="truncate-60">
+                Ebay
             </span>
+        </span>
         </div>
         <div class="rightbg"></div>
     </div>
+
     <div class="clr"></div>
-
     <!--/* starts second table*/-->
-
 <div>
     <ul class="nav nav-tabs" role="tablist">
-        <li >
-            <a href="index.html"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
         </li>
         <li >
             <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
         </li>
-        <li class="active">
-            <a href="#"><i class="bi bi-chat-text"></i> Capabilities</a>
+        <li >
+            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="bi bi-chat-text"></i> Capabilities</a>
         </li>
         <li >
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 10-11-2023 21:53</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 11-11-2023 12:44:00</span>
     <br style="clear:left"/>
 </div>
-
     <div class="clr"></div>
-
     <div id="beforetable"></div>
     <div id="results-dashboard">
-        <div class="table">
-            <div class=row">
-                <div class="col-sm-12">
-                    <div>
-                        <div clas="table">
-                            <div class="row">
-                                    <div class="col-sm-12">
-                                        <span>
-                                            <h2><i class="bi bi-book"></i> Capability:  Serenity/JS Todo List Example</h2>
-                                        </span>
-                                    </div>
+        <div class="middlb">
+            <div class="table">
+
+                <h2><i class='bi bi-tags'></i> Capability: Ebay</h2>
+                <table class='overview'>
+                    <tr>
+                        <td width="375px" valign="top">
+                            <div class="test-count-summary">
+                                <div class="test-count-title">
+                                    1 test scenarios 
+                                     |
+                                        <a href="4bd14facd7b46a235bfd8a4070eebb21bb82ca7c2ef6c0ae217e0fc8e8557702.csv" title="Download CSV"> <i class="bi bi-cloud-arrow-down"
+                                                                                        title="Download CSV"></i></a>
+
+
                                 </div>
                             </div>
-                        </div>
-                            <div class="requirementNarrativeTitle">
-                                This is a simple example of a Serenity/JS project, interacting with a <a href="http://todomvc.com/">TodoMVC</a> application<br />
-available at <a href="https://todo-app.serenity-js.org/">todo-app.serenity-js.org/</a>.</p>
-<p>This note is called <em>&quot;the narrative&quot;</em>. It can be used to provide the context around the business capability of your<br />
-product (&quot;Reporting Results&quot; in this case) and its features that help to enable this capability.</p>
-<p><strong>Please note:</strong> While <a href="https://github.com/cucumber/cucumber-js">Cucumber</a> allows you to capture a description<br />
-of each feature in the <code>.feature</code> file, <a href="https://serenityjs.org">Serenity/JS</a> allows us to group those <code>.feature</code><br />
-files in directories corresponding to &quot;epics&quot;, &quot;themes&quot; or &quot;business capabilities&quot; of your system and provide<br />
-each one of those with additional context using this <code>narrative.txt</code> file.</p>
-<p><strong>By the way:</strong> Did you notice that you can use <strong><a href="https://www.markdownguide.org/">markdown syntax</a></strong> to better express<br />
-your thoughts?
-                            </div>
 
-                    </div>
-                </div>
+                            <div>
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#summary"><i class="bi bi-house-door"></i>
+                                            Summary</a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#tests"><i class="bi bi-speedometer"></i> Test
+                                            Results</a>
+                                    </li>
+                                </ul>
 
 
-                <div class="row">
-                    <div class="col-sm-12">
-
-                        <!-- Requirements result tabs -->
-                        <ul class="nav nav-tabs">
-                            <li class="active">
-                                <a data-toggle="tab" href="#specs"><i class="bi bi-journal-text"></i> Specifications</a>
-                            </li>
-                            <li>
-                                <a data-toggle="tab" href="#results"><i class="bi bi-speedometer"></i> Test Results</a>
-                            </li>
-                        </ul>
-
-                        <!-- Specifications and Results tabs -->
-                        <div class="card border">
-                            <div class="tab-content" id="pills-tabContent">
-                                <div id="specs" class="tab-pane fade in active">
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-
-                                                    <h3>Requirements Overview</h3>
-
-                                                    <div id="tree"></div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div id="results" class="tab-pane fade">
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <!-- PIE CHART -->
-                                                    <div class="chart-container" style="position: relative; width:30vw">
-                                                        <canvas id="resultChart" width="300" height="300"></canvas>
+                                <div class="card border">
+                                    <div class="tab-content" id="pills-tabContent">
+                                        <div id="summary" class="tab-pane fade in active">
+                                            <div class="container-fluid">
+                                                <div class="dashboard-charts row">
+                                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                                        <!-- PIE CHART -->
+                                                        <h4><i class="bi bi-pie-chart"></i> Overview</h4>
+                                                            <div class="chart-container">
+                                                                <canvas id="resultChart" height="200px"></canvas>
+                                                            </div>
                                                     </div>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <h4><i class="bi bi-check-square"></i> Test Outcomes</h4>
-                                                <!-- Severity bar chart -->
-                                                <div class="chart-container" style="position: relative; width:30vw">
-                                                    <canvas id="severityChart" width="300" height="300"></canvas>
+                                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                                        <h4><i class="bi bi-check-square"></i> Test Outcomes</h4>
+                                                        <!-- Severity bar chart -->
+                                                        <div class="chart-container">
+                                                            <canvas id="severityChart" height="200px"></canvas>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                                        <h4><i class="bi bi-graph-up"></i> Test Performance</h4>
+
+                                                        <!-- Duration bar chart -->
+                                                        <div class="chart-container">
+                                                            <canvas id="durationChart" height="200px"></canvas>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-
-                                            <div class="col-sm-4">
-                                                <h4><i class="bi bi-graph-up"></i> Test Performance</h4>
-
-                                                <!-- Duration bar chart -->
-                                                <div class="chart-container" style="position: relative; width:30vw">
-                                                    <canvas id="durationChart" width="300" height="300"></canvas>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <h3><i class="bi bi-gear"></i> Automated Tests</h3>
-
-                                                    <table class="scenario-result-table table"
-                                                           id="scenario-results">
-                                                        <thead>
-                                                        <tr>
-                                                                <th>feature</th>
-                                                            <th class="test-name-column">Scenario</th>
-                                                            <th>Steps</th>
-                                                            <th>Started</th>
-                                                            <th>Duration</th>
-                                                            <th>Result</th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr class="scenario-result SUCCESS">
-                                                                    <td>
-                                                                            <a href="582ead81d4018f20202ce660485438fe2247d96f85f6bb4fd3ef0c5df5807342.html">Search items in Ebay</a>
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                        <div class="col-lg-8 col-md-8 col-sm-12">
+                                                            <!-- High level coverage bar chart -->
+                                                            <div class="chart-container">
+                                                                <h3><i class="bi bi-reception-3"></i> Functional Coverage Overview</h3>
+                                                                <h4>Features</h4>
+                                                                <canvas id="coverageChart"></canvas>
+                                                            </div>
+                                                        </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-8">
+                                                        <div>
+                                                            <h3><i class="bi bi-speedometer2"></i> Key Statistics</h3>
+                                                            <div>
+                                                                <table class="table table-striped table-hover">
+                                                                    <tbody>
+                                                                    <tr scope="row">
+                                                                        <td>
+                                                                            <i class="bi bi-flag-fill"></i> Tests
+                                                                            Started
+                                                                        </td>
+                                                                        <td>Nov 11, 2023 12:43:45</td>
+                                                                    </tr>
+                                                                    <tr scope="row">
+                                                                        <td>
+                                                                            <i class="bi bi-stop-circle"></i> Tests
+                                                                            Finished
+                                                                        </td>
+                                                                        <td>Nov 11, 2023 12:43:53</td>
+                                                                    </tr>
+                                                                    <tr scope="row">
+                                                                        <td>
+                                                                            <i class="bi bi-stopwatch"></i> Total
+                                                                            Duration
+                                                                        </td>
+                                                                        <td>7s</td>
+                                                                    </tr>
+                                                                    <tr scope="row">
+                                                                        <td>
+                                                                            <i class="bi bi-trophy"></i> Fastest Test
+                                                                        </td>
+                                                                        <td>7s</td>
+                                                                    </tr>
+                                                                    <tr scope="row">
+                                                                        <td>
+                                                                            <i class="bi bi-skip-start"></i> Slowest
+                                                                            Test
+                                                                        </td>
+                                                                        <td>7s</td>
+                                                                    </tr>
+                                                                    <tr scch items in Ebay</a>
                                                                     </td>
                                                                 <td>
                                                                         <a href="9ceba40f2d9eb4a5575309a5f778a3bcfb8b8699459bbaaef83d36d693184fe0.html"><span class='context-icon'><i class='fa fa-chrome' aria-hidden='true'></i> <i class='fa fa-linux' aria-hidden='true'></i></span>Search for items Bote</a>
                                                                 </td>
                                                                 <td>3</td>
-                                                                <td>21:53:22</td>
-                                                                <td>7s 337ms</td>
+                                                                <td>12:43:45</td>
+                                                                <td>7s 851ms</td>
                                                                 <td>
                                                                         <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
                                                                             style="display:none">SUCCESS</span>
@@ -448,6 +425,134 @@ your thoughts?
         </div>
     </div>
 </div>
+<!-- Chart data -->
+    <!-- PIE CHART -->
+    <script>
+
+        // Register the plugin to all charts:
+        Chart.register(ChartDataLabels);
+
+        // The results pie chart
+        const outcomeChartCtx = document.getElementById('resultChart');
+
+        // Options define for display value on top of bars
+        const outcomeDetailsReports = [
+            { title: 'Passing Scenarios', link: "9d0192b9f73a05f6d0170bfa62f6cb2e88629e34bd5618163c69c29a9461f3f6.html" },
+            { title: 'Pending Scenarios', link: "e215eb81933f8b4ccf983b8b66579a30133642ef43e90c089d73d92690fa2f29.html" },
+            { title: 'Ignored Scenarios', link: "c823775dfd4903e7802d5368a40bfc03858608bd356c66a9f5fe61a2cd417683.html" },
+            { title: 'Skipped Scenarios', link: "95c44317b3fcc9e315b0a782cbcb384f9b6af84dd4efe1e7528de9632327abc6.html" },
+            { title: 'Aborted Scenarios',  link: "5b0704c953a48a78f15844824632e660d133a0281fbbf2cd494c8c9b25227ad2.html"},
+            { title: 'Failed Scenarios', link: "a9f224f0608278609219cdff37bed8208020233a940262239cc73c709885dfb1.html"  },
+            { title: 'Broken Scenarios', link: "762e1c9f7214e033e49a8e6de55f744c72ee63430244dd4b9f5821673ad3e61c.html"    },
+            { title: 'Compromised Scenarios',  link: "8ed5ee4b184c0307ca7936b2edd439cc2e0a3f294b6a5061b43bfa0bc4151a44.html" },
+        ]
+        const outcomeData = {
+            labels: ['Passing', 'Pending', 'Ignored', 'Skipped', 'Aborted', 'Failed', 'Broken', 'Compromised'],
+            datasets: [{
+                label: 'Test Results',
+                fill: false,
+                data: [1,0,0,0,0,0,0,0],
+                backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)'],
+                borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)'],
+                borderWidth: 1,
+            }]
+        }
+        consttitle">Feature</h5>
+                            <div>
+                                    <a href="582ead81d4018f20202ce660485438fe2247d96f85f6bb4fd3ef0c5df5807342.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Ebay/Search Items In Ebay&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Platform</h5>
+                            <div>
+                                    <a href="8a486b82ce9f41d097d83414b28a10d776a067ff0dce8985e02f7903e365b228.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Linux&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+                                            </div>
+                                        </div>
+                                        <div id="tests" class="tab-pane fade">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h3><i class="bi bi-gear"></i> Automated Tests</h3>
+
+                                                            <table class="scenario-result-table table"
+                                                                   id="scenario-results">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>feature</th>
+                                                                    <th class="test-name-column">Scenario</th>
+                                                                    <th>Steps</th>
+                                                                    <th>Started</th>
+                                                                    <th>Duration</th>
+                                                                    <th>Result</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="582ead81d4018f20202ce660485438fe2247d96f85f6bb4fd3ef0c5df5807342.html">Search items in Ebay</a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="9ceba40f2d9eb4a5575309a5f778a3bcfb8b8699459bbaaef83d36d693184fe0.html"><span class='context-icon'><i class='fa fa-chrome' aria-hidden='true'></i> <i class='fa fa-linux' aria-hidden='true'></i></span>Search for items Bote</a>
+                                                                        </td>
+                                                                        <td>3</td>
+                                                                        <td>12:43:45</td>
+                                                                        <td>7s 851ms</td>
+                                                                        <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h3><i class="bi bi-hand-index-thumb"></i> Manual Tests</h3>
+
+                                                            No manual tests were recorded
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="beforefooter"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <span class="version">Serenity BDD version 3.1.0</span>
+        </div>
+    </div>
+</div>
+
 <!-- Chart data -->
     <!-- PIE CHART -->
     <script>
@@ -706,5 +811,119 @@ your thoughts?
         durationChartCtx.onclick = durationClickHandler;
     </script>
     <!-- END SUMMARY CHART -->
+
+
+
+    <!-- COVERAGE BAR CHART -->
+    <script>
+
+        // The coverage bar chart
+        const coverageChartCtx = document.getElementById('coverageChart');
+
+        // Options define for display value on top of bars
+
+        const coverageReports = [
+            {
+                title: 'Search items in Ebay',
+                result: 'SUCCESS',
+                link: "582ead81d4018f20202ce660485438fe2247d96f85f6bb4fd3ef0c5df5807342.html"
+            },
+        ]
+        const coverageData = {
+            labels: [
+                'Search items in Ebay',
+            ],
+            datasets: [
+                {
+                    label: ['Passing Tests'],
+                    data: [1],
+                    backgroundColor: [ 'rgba(153,204,51,0.5)' ]
+                },
+                {
+                    label: ['Pending Tests'],
+                    data: [null],
+                    backgroundColor: [ 'rgba(165, 199, 238, 0.5)' ]
+                },
+                {
+                    label: ['Ignored Tests'],
+                    data: [null],
+                    backgroundColor: [ 'rgba(168, 168, 168, 0.5)' ]
+                },
+                {
+                    label: ['Skipped Tests'],
+                    data: [null],
+                    backgroundColor: [ 'rgba(238, 224, 152, 0.75)' ]
+                },
+                {
+                    label: ['Aborted Tests'],
+                    data: [null],
+                    backgroundColor: [ 'rgba(255, 153, 102, 0.5)' ]
+                },
+                {
+                    label: ['Failed Tests'],
+                    data: [null],
+                    backgroundColor: [ 'rgba(255, 22, 49, 0.5)' ]
+                },
+                {
+                    label: ['Errors'],
+                    data: [null],
+                    backgroundColor: [ 'rgba(255, 97, 8, 0.5)' ]
+                },
+                {
+                    label: ['Compromised Tests'],
+                    data: [null],
+                    backgroundColor: [ 'rgba(255, 104, 255, 0.5)' ]
+                },
+            ]
+        }
+        const coverageOptions = {
+            responsive: true,
+            indexAxis: 'y',
+            // barPercentage: ,
+            barThickness: 'flex',
+            maxBarThickness: 30,
+            minBarLength: 2,
+            skipNull: true,
+            scales: {
+                x: {
+                    stacked: true,
+                },
+                y: {
+                    stacked: true,
+                }
+            },
+            plugins: {
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold'
+                },
+                tooltip: {
+                    enabled: true,
+                    usePointStyle: true,
+                },
+            },
+        }
+
+        const coverageChart = new Chart(coverageChartCtx, {
+            type: 'bar',
+            data: coverageData,
+            options: coverageOptions
+        });
+
+        function coverageClickHandler(click) {
+            const points = coverageChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                if (coverageReports[firstPoint.index].link) {
+                    window.open(coverageReports[firstPoint.index].link, "_self")
+                }
+            }
+        }
+
+        coverageChartCtx.onclick = coverageClickHandler;
+    </script>
+    <!-- END COVERAGE CHART -->
+
 </body>
 </html>
