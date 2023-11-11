@@ -1,4 +1,4 @@
-**Cómo usar el proyecto de plantilla Serenity/JS-Mocha-WebdriverIO con Serenity/JS y GitHub Actions**
+**Cómo usar el proyecto de plantilla [Serenity/JS-Mocha-WebdriverIO con Serenity/JS](https://github.com/syamphaneendra/webdriverio-web-mobile-boilerplate) y GitHub Actions**
 
 Este proyecto de plantilla proporciona una base para comenzar a realizar pruebas de aceptación de aplicaciones web utilizando Serenity/JS, Cucumber y WebdriverIO.
 
