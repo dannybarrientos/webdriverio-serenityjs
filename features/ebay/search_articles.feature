@@ -1,13 +1,13 @@
 Feature: Search items in Ebay
 
-@pila
+@search
 Scenario: Search for items Pilas
 
     Given Danny opens the eBay "https://www.ebay.com/"
     When Danny searches for "Pilas"
     Then Danny prints the number of items found
 
-@bote
+@search
 Scenario: Search for items Bote
 
     Given Danny opens the eBay "https://www.ebay.com/"
