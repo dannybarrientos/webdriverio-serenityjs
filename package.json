@@ -25,7 +25,7 @@
     "serenity:update": "serenity-bdd update",
     "serenity:clean": "rimraf target",
     "wdio": "wdio run ./wdio.conf.js",
-    "wdiotag": "wdio run ./wdio.conf.js --cucumberOpts.tags='@pila'",
+    "wdiotag": "wdio run ./wdio.conf.js --cucumberOpts.tags='@search'",
     "serenity:report": "serenity-bdd run"
   }
 }
