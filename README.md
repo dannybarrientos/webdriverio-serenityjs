@@ -1,5 +1,5 @@
 ## Español
-**Cómo usar el proyecto de plantilla Serenity/JS-Mocha-WebdriverIO con Serenity/JS y GitHub Action**
+**Cómo usar el proyecto de plantilla Serenity/JS-Mocha-WebdriverIO con Serenity/JS y GitHub Actions**
 
 **Instalación**
 
