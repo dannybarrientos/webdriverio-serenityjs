@@ -155,7 +155,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 21-03-2024 02:34</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 21-03-2024 03:17</span>
     <br style="clear:left"/>
 </div>
 
@@ -231,9 +231,9 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-exclamation-triangle-fill error-icon fa-2x' title='ERROR'></i></a></span>
                             <span class="test-case-title">
-                                <span class="success-color">Search for items Pilas
+                                <span class="error-color">Search for items Pilas
                                     <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -250,21 +250,46 @@
 
     <div id="beforetable"></div>
     <div id="contenttilttle">
+            <div class="screenshotFailure panel panel-danger">
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">Error: function timed out, ensure the promise resolves within 5000 milliseconds</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall"
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-overall">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Error </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>.Timeout.<anonymous>()(/home/runner/work/webdriverio-serenityjs/webdriverio-serenityjs/node_modules/@cucumber/cucumber/lib/time.js:54)<br />.listOnTimeout()(node:internal/timers:573)<br />.process.processTimers()(node:internal/timers:514)<br /></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+            </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
-                <img src="photo-linux-chrome-headless-shell-122.0.6261.128-danny-navigates-to-h-4060850d80.png" title=" Given Danny opens the eBay &quot;https://www.ebay.com/&quot;" width="0"/>
-                <img src="photo-linux-chrome-headless-shell-122.0.6261.128-danny-navigates-to-h-4060850d80.png" title=" Danny navigate to an articles list" width="0"/>
-                <img src="photo-linux-chrome-headless-shell-122.0.6261.128-danny-navigates-to-h-4060850d80.png" title=" Danny navigates to 'https://www.ebay.com/'" width="0"/>
-                <img src="photo-linux-chrome-headless-shell-122.0.6261.128-danny-clicks-on-ingre-16c8ad6b0f.png" title=" Danny clicks on Ingresar Articulos a Buscar" width="0"/>
-                <img src="photo-linux-chrome-headless-shell-122.0.6261.128-danny-enters-pilas-37bb670db6.png" title=" When Danny searches for &quot;Pilas&quot;" width="0"/>
-                <img src="photo-linux-chrome-headless-shell-122.0.6261.128-danny-enters-pilas-37bb670db6.png" title=" Danny search for articles" width="0"/>
-                <img src="photo-linux-chrome-headless-shell-122.0.6261.128-danny-enters-pilas-37bb670db6.png" title=" Danny enters 'Pilas' into Ingresar Articulos a Buscar" width="0"/>
-                <img src="photo-linux-chrome-headless-shell-122.0.6261.128-danny-clicks-on-click-b670c2dedc.png" title=" Danny clicks on Click Bot&oacute;n Articulos" width="0"/>
-                <img src="photo-linux-chrome-headless-shell-122.0.6261.128-danny-clicks-on-numer-e4ecfbef37.png" title=" Then Danny prints the number of items found" width="0"/>
-                <img src="photo-linux-chrome-headless-shell-122.0.6261.128-danny-clicks-on-numer-e4ecfbef37.png" title=" Danny valida the result" width="0"/>
-                <img src="photo-linux-chrome-headless-shell-122.0.6261.128-danny-clicks-on-numer-e4ecfbef37.png" title=" Danny clicks on numero de Art&iacute;culos encontrados" width="0"/>
+                <img src="photo-linux-chrome-headless-shell-122.0.6261.128-danny-navigates-to-h-dae27a6d53.png" title=" Given Danny opens the eBay &quot;https://www.ebay.com/&quot;" width="0"/>
+                <img src="photo-linux-chrome-headless-shell-122.0.6261.128-danny-navigates-to-h-dae27a6d53.png" title=" Danny navigate to an articles list" width="0"/>
+                <img src="photo-linux-chrome-headless-shell-122.0.6261.128-danny-navigates-to-h-dae27a6d53.png" title=" Danny navigates to 'https://www.ebay.com/'" width="0"/>
 
-                <img src="photo-linux-chrome-headless-shell-122.0.6261.128-danny-logs-the-text-50f9fceab6.png" title=" Danny logs: the text of numero de Artículos encontrados: <span class='success-color'>SUCCESS</span>" width="0"/>
+                <img src="photo-linux-chrome-headless-shell-122.0.6261.128-danny-clicks-on-ingre-662d0589bd.png" title=" Danny clicks on Ingresar Articulos a Buscar: <span class='error-color'>ERROR</span>" width="0"/>
             </div>
         </div>
 
