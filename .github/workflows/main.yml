@@ -35,7 +35,6 @@ jobs:
         if: always()
         with:
           allure_results: target/site/serenity
-          allure_history: allure_results
           gh_pages: gh-pages
 
       - name: Deploy report to Github Pages
