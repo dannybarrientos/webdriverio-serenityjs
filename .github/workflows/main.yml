@@ -34,8 +34,8 @@ jobs:
         uses: simple-elf/allure-report-action@master
         if: always()
         with:
-          allure_results: allure-results
-          allure_history: allure-history
+          allure_results: target/site/serenity
+          gh_pages: gh-pages
 
       - name: Deploy report to Github Pages
         if: always()
@@ -43,4 +43,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: target/site/serenity
+          publish_dir: allure-history
